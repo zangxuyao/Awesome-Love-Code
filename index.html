@@ -145,38 +145,7 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
 
-        .icing {
-            width: 320px;
-            height: 25px;
-            background: #fff;
-            border-radius: 15px 15px 0 0;
-            position: absolute;
-            bottom: 190px;
-            left: -10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
 
-        .icing::before {
-            content: '';
-            position: absolute;
-            top: 8px;
-            left: 10px;
-            right: 10px;
-            height: 3px;
-            background: #ffe5ec;
-            border-radius: 2px;
-        }
-
-        .icing::after {
-            content: '';
-            position: absolute;
-            top: 12px;
-            left: 20px;
-            right: 20px;
-            height: 2px;
-            background: #ffc2d1;
-            border-radius: 1px;
-        }
 
         .knife {
             width: 4px;
@@ -248,31 +217,36 @@
         .cake-layer:nth-child(1) { top: 20px; }
         .cake-layer:nth-child(2) { top: 80px; }
 
-        /* 蜡烛 */
+        /* 蜡烛（固定在蛋糕上） */
         .candle {
             width: 18px;
-            height: 100px;
+            height: 80px;
             background: var(--secondary-color);
             position: absolute;
-            top: -100px;
+            top: -20px; /* 调整至蛋糕顶部 */
             left: 50%;
             transform: translateX(-50%);
             border-radius: 5px;
-            animation: candle-float 3s ease-in-out infinite;
             box-shadow: 0 0 10px rgba(255,217,61,0.5);
         }
 
+        /* 飘动的火焰 */
         .flame {
-            width: 15px;
-            height: 25px;
+            width: 12px;
+            height: 20px;
             background: linear-gradient(180deg, #FFD93D 0%, #FF6B6B 100%);
             position: absolute;
-            top: -30px;
+            top: -25px;
             left: 50%;
             transform: translateX(-50%);
             border-radius: 50% 50% 35% 35%;
-            animation: flame 1.2s ease-in-out infinite;
-            filter: blur(2px);
+            animation: flame-flicker 1.2s ease-in-out infinite;
+            filter: blur(1px);
+        }
+
+        @keyframes flame-flicker {
+            0%, 100% { height: 20px; opacity: 0.9; transform: translateX(-50%) rotate(-1deg); }
+            50% { height: 25px; opacity: 0.7; transform: translateX(-50%) rotate(1deg); }
         }
 
         /* 粒子效果 */
@@ -330,7 +304,7 @@
                 <div class="flame"></div>
             </div>
         </div>
-    <div class="message">生日快乐！</div> <!-- 最终祝福文字 -->
+    <div class="message">生日快乐！</div> <嘻嘻>
     <audio id="birthday-music" src="139-“夜晚听这首歌 真的很舒服”《no song without you》｜日推歌单-480P 标清-AVC.aac" loop></audio>
     <button id="play-pause-btn" class="cartoon-btn">点燃蜡烛</button>
     <script src="script.js"></script>
