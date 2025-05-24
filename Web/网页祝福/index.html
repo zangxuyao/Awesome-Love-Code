@@ -307,9 +307,41 @@
     <div class="message">生日快乐！</div> <嘻嘻>
     <audio id="birthday-music" src="139-“夜晚听这首歌 真的很舒服”《no song without you》｜日推歌单-480P 标清-AVC.aac" loop></audio>
     <button id="play-pause-btn" class="cartoon-btn">点燃蜡烛</button>
-    <script src="script.js"></script>
     <script>
-        // 保留原有内联脚本（如有必要）
+        // 初始化页面交互
+        function init() {
+            // 欢迎页面按钮事件监听
+            const enterBtn = document.querySelector('.enter-btn');
+            const welcomeScreen = document.querySelector('.welcome-screen');
+            const mainContent = document.querySelector('.main-content');
+            const audio = document.getElementById('birthday-music');
+
+            if (enterBtn && welcomeScreen && mainContent && audio) {
+                enterBtn.addEventListener('click', () => {
+                    welcomeScreen.style.display = 'none';
+                    mainContent.style.display = 'block';
+                    audio.src = '139-“夜晚听这首歌 真的很舒服”《no song without you》｜日推歌单-480P 标清-AVC.aac';
+                    audio.play();
+                });
+            }
+
+            // 点燃蜡烛按钮事件监听
+            const playBtn = document.getElementById('play-pause-btn');
+            if (playBtn && audio) {
+                playBtn.addEventListener('click', () => {
+                    if (audio.paused) {
+                        audio.play();
+                        playBtn.textContent = '熄灭蜡烛';
+                    } else {
+                        audio.pause();
+                        playBtn.textContent = '点燃蜡烛';
+                    }
+                });
+            }
+        }
+
+        // 页面加载完成后执行初始化
+        window.addEventListener('DOMContentLoaded', init);
     </script>
     </div>
 
