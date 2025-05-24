@@ -1,61 +1,115 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="zh-CN">
 <head>
-	<meta charset="utf-8">
-	<title>想对你说的话都在抽屉里</title>
-	<meta name="language" content="zh-CN">
-	<meta name="github" content="https://github.com/sun0225SUN/Awesome-Love-Code">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="icon" type="image/x-icon" href="https://i.loli.net/2021/06/03/lFg2V4WUcmkB98G.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生日快乐</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #f0e6d6;
+        }
 
+        .birthday-text {
+            font-size: 3rem;
+            color: #e74c3c;
+            margin-bottom: 2rem;
+            font-family: '华文行楷', cursive;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .cake {
+            width: 300px;
+            height: 200px;
+            background: #f5c7b0;
+            border-radius: 10px 10px 0 0;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .cake::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: repeating-linear-gradient(
+                -45deg,
+                #e74c3c,
+                #e74c3c 10px,
+                #f5c7b0 10px,
+                #f5c7b0 20px
+            );
+        }
+
+        .candle {
+            width: 15px;
+            height: 80px;
+            background: #3498db;
+            position: absolute;
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px 5px 0 0;
+            animation: candle-shake 3s ease-in-out infinite;
+        }
+
+        .flame {
+            width: 12px;
+            height: 20px;
+            background: linear-gradient(to bottom, #ffd700 50%, #ff4500 100%);
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50% 50% 30% 30%;
+            animation: flame 1s ease-in-out infinite, flame-flicker 0.5s linear infinite;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        }
+
+        @keyframes flame {
+            0%, 100% {
+                height: 20px;
+                opacity: 0.9;
+            }
+            50% {
+                height: 24px;
+                opacity: 0.7;
+            }
+        }
+
+        @keyframes flame-flicker {
+            0%, 100% {
+                transform: translateX(-50%) rotate(-2deg);
+            }
+            50% {
+                transform: translateX(-50%) rotate(2deg);
+            }
+        }
+
+        @keyframes candle-shake {
+            0%, 100% {
+                transform: translateX(-50%) rotate(-1deg);
+            }
+            50% {
+                transform: translateX(-50%) rotate(1deg);
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-	<div class="chest">
-		<div class="chest__panel chest__panel--back"></div>
-		<div class="chest__panel chest__panel--front">
-			<div class="chest__panel chest__panel--front-frame"></div>
-		</div>
-		<div class="chest__panel chest__panel--top"></div>
-		<div class="chest__panel chest__panel--bottom"></div>
-		<div class="chest__panel chest__panel--left"></div>
-		<div class="chest__panel chest__panel--right"></div>
-		<div class="chest-drawer chest-drawer--top">
-			<details>
-				<summary></summary>
-			</details>
-			<div class="chest-drawer__structure">
-				<div class="chest-drawer__panel chest-drawer__panel--left"></div>
-				<div class="chest-drawer__panel chest-drawer__panel--right"></div>
-				<div class="chest-drawer__panel chest-drawer__panel--bottom"></div>
-				<div class="chest-drawer__panel chest-drawer__panel--back">I</div>
-			</div>
-		</div>
-		<div class="chest-drawer chest-drawer--middle">
-			<details>
-				<summary></summary>
-			</details>
-			<div class="chest-drawer__structure">
-				<div class="chest-drawer__panel chest-drawer__panel--left"></div>
-				<div class="chest-drawer__panel chest-drawer__panel--right"></div>
-				<div class="chest-drawer__panel chest-drawer__panel--bottom"></div>
-				<div class="chest-drawer__panel chest-drawer__panel--back">Need</div>
-			</div>
-		</div>
-		<div class="chest-drawer chest-drawer--bottom">
-			<details>
-				<summary></summary>
-			</details>
-			<div class="chest-drawer__structure">
-				<div class="chest-drawer__panel chest-drawer__panel--left"></div>
-				<div class="chest-drawer__panel chest-drawer__panel--right"></div>
-				<div class="chest-drawer__panel chest-drawer__panel--bottom"></div>
-				<div class="chest-drawer__panel chest-drawer__panel--back">You</div>
-			</div>
-		</div>
-	</div>
+    <h1 class="birthday-text">祝甘雨辰生日快乐！</h1>
+    <div class="cake">
+        <div class="candle">
+            <div class="flame"></div>
+        </div>
+    </div>
 </body>
-
 </html>
